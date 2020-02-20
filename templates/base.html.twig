@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Agapi - Bienvenue{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% include 'partials/requirements_head.html.twig' %}
     </head>
+
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     </body>
+
+        {% include 'partials/footer.html.twig' %}
+        {% include 'partials/requirements_footer.html.twig' %}
+
+        {% block javascripts %}{% endblock %}
 </html>

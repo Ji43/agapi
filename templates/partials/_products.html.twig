@@ -1,0 +1,20 @@
+<div class="col-md-6 col-lg-4 col-xl-3">
+    <div class="item">
+        <div class="thumb">
+            <a href="{{ path('show_product', {'slug' : product.slug}) }}"
+               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                <img src="{{ product.image }}" alt="">
+            </a>
+        </div>
+        <div class="info">
+            <h5 class="woocommerce-loop-product__title">
+                <a href="{{ path('show_product', {'slug' : product.slug}) }}">{{ product.libelle }}</a>
+            </h5>
+            <span class="price">
+               <span class="woocommerce-Price-amount amount">
+                        {{ product.prix }} <span class="woocommerce-Price-currencySymbol">&euro;</span>
+                </span>
+            </span>
+        </div>
+    </div>
+</div>

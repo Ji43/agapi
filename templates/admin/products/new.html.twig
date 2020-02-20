@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %} {{ pageTitle }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <h1 class="my-5">{{ secondTitle | raw }}</h1>
+
+        {{ form_start(form) }}
+
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2>Informations générales</h2>
+                    <hr>
+                    {{ form_row(form.libelle) }}
+                    {{ form_row(form.description) }}
+                    {{ form_row(form.prix) }}
+                    {{ form_row(form.origine) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="alert alert-light">
+                    <h2>Détails du produit</h2>
+                    <hr>
+                    {{ form_row(form.image) }}
+                    {{ form_row(form.SousCategorieProduit) }}
+                    {{ form_row(form.parfume) }}
+                </div>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Valider</button>
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

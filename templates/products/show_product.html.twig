@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.libelle }}{% endblock %}
+
+{% block body %}
+    {{ menu.render }}
+
+    <main>
+        <!-- PAGE BREADCRUMB -->
+        <section class="page-breadcrumb">
+            <div class="container">
+                <div class="row justify-content-between align-content-center">
+                    <div class="col-md-auto">
+                        <h3>{{ produit.libelle }}</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT -->
+        <section class="section-primary project pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="project-image">
+                            <div class="image-holder">
+                                <img src="{{ produit.image }}" alt="image du produit {{ produit.libelle }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="project-content">
+                            <h4>Description :</h4>
+                            <p>{{ produit.description }}</p>
+                            <div class="info">
+                                <div class="info-item">
+                                    <h4>prix :</h4>
+                                    <span>{{ produit.prix }} &euro;</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <h4>Catégorie du produit : </h4>
+                                    <span>{{ produit.sousCategorieProduit.libelle }}</span>
+                                </div>
+
+                                <div class="info-item">
+                                    <h4> Origine : </h4>
+                                    <span>{{ produit.origine }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

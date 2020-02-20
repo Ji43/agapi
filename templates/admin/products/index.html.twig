@@ -1,0 +1,62 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}Gestion des produits{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="my-5">Administration des produits</h1>
+
+        {% if pagination.page == 1 %}
+            <div class="alert alert-dismissible alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Information :</strong> La numérotation des produits n'est pas forcément successive à partir du moment où certains enregistrements ont été supprimés.
+            </div>
+        {% endif %}
+
+        <a href="{{ path('product_create') }}" class="btn btn-primary btn-lg"><i class="fas fa-plus"></i> Ajouter un produit</a>
+
+        <table class="table table-hover mt-5">
+            <thead>
+            <tr>
+                <th>N°</th>
+                <th>Image</th>
+                <th>Libellé</th>
+                <th>Prix</th>
+                <th>Parfumé</th>
+                <th>Origine</th>
+                <th>Sous-catégorie</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for produit in pagination.data %}
+                <tr>
+                    <td>{{ produit.id }}</td>
+                    <td>
+                        <img src="{{ produit.image }}" class="productImage" alt="{{ produit.libelle }}">
+                    </td>
+                    <td>{{ produit.libelle }}</td>
+                    <td>{{ produit.prix | number_format(2,',',' ') }} &euro; </td>
+                    <td>
+                        {% if produit.parfume %}
+                            Oui
+                        {% else %}
+                            Non
+                        {% endif %}
+                    </td>
+                    <td>{{ produit.origine }}</td>
+                    <td>{{ produit.SousCategorieProduit.libelle }}</td>
+                    <td>
+                        <a href="{{ path('product_edit', {'id' : produit.id}) }}" class="btn btn-primary">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                        <a href="{{ path('product_delete', { 'id' : produit.id }) }}" class="btn btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer ce produit ?');">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {{ pagination.display() }}
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+div.container, div.container-fluid {
+    margin-top: 20px;
+}
+
+.productImage {
+    max-width: 115px;
+    max-height: 115px;
+    border-radius: 50%;
+}
+
+.pagination {
+    margin-top: 20px;
+}

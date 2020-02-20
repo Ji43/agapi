@@ -1,11 +1,36 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Utilisateur:
+            algorithm: bcrypt
+
     providers:
         in_memory: { memory: null }
+        in_database:
+            entity:
+                class: App\Entity\Utilisateur
+                property: nom_utilisateur
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+        admin:
+            pattern: ^/admin
+            anonymous: true
+            provider: in_database
+
+            form_login:
+                login_path: admin_account_login
+                check_path: admin_account_login
+                default_target_path: admin_products_index
+
+            logout:
+                path: admin_account_logout
+                target: home
+
+
         main:
             anonymous: lazy
 
@@ -18,5 +43,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

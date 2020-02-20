@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+    {{ menu.render }}
+    <main>
+
+        <!-- Slide à l'ouverture de la page -->
+        <div class="rev_slider_wrapper">
+            <div id="rev_slider_1" class="rev_slider justify-content-center" data-version="5.4.5">
+                <ul>
+                    <li data-transition="">
+                        <img src="/images/main_home.jpg" class="rev-slidebg" alt="">
+
+                        <div class="row tp-caption tp-resizeme caption-1 text-center"
+                             data-frames='[{"delay":500,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"y:-20px;opacity:0;","ease":"Power3.easeInOut"}]'
+                             data-x="center"
+                             data-y="middle"
+                             data-fontsize="['72', '70', '65', '60', '60']"
+                             data-voffset="['-43.5','-57', '-54', '-97', '-100']"
+                             data-textAlign="center"
+                             data-lineheight="inherit"
+                             data-color="#cdaa7c"
+                        >
+                          Maison Agapi
+                        </div>
+
+                        <div class="tp-caption tp-resizeme caption-2 text-center"
+                             data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"y:-20px;opacity:0;","ease":"Power3.easeInOut"}]'
+                             data-x="center"
+                             data-y="middle"
+                             data-voffset="['47.5', '34', '37', '-6', '-9']"
+                             data-fontsize="['20', '20', '20', '20', '25']"
+                             data-lineheight="inherit"
+                             data-color="#ccc"
+                        >
+                            <p class="text-justify h4 tp-bgimg">Une variété de thés à découvrir et plus encore !</p>
+                        </div>
+
+                        <a href="#" class="tp-caption tp-resizeme caption-btn au-btn round au-btn--hover"
+                           data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"y:20px;opacity:0;","ease":"Power3.easeInOut"}]'
+                           data-x="center"
+                           data-y="middle"
+                           data-voffset="['146.5', '133', '136', '93', '90']"
+                           data-fontsize="['15', '18', '19',  '20', '25']"
+                           data-lineheight="inherit"
+                           data-width="['172', '182', '190', '200', '252']"
+                           data-height="['42', '42', '50', '50', '65']"
+                           data-paddingtop="1"
+                           data-color="#fff"
+                        >
+                            Voir nos thés
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bienvenue chez Agapi -->
+        <section class="welcome section-primary">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Bienvenue chez Agapi</h2>
+                    <span>~ Luxe & Qualité ~</span>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="post">
+                            <div class="post-thumb">
+                                <img src="images/agap-petit.jpg" alt="maison_agapi">
+                            </div>
+                            <div class="post-body">
+                                <h5>
+                                    Un lieu de détente
+                                </h5>
+
+                                <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam nisi non pariatur similique ut. Autem blanditiis dolores illo officiis vitae? Aliquam labore molestias neque pariatur quibusdam repellat reprehenderit vero voluptatibus.</span><span>A aperiam corporis cum cupiditate dignissimos dolore error est excepturi expedita fuga, in magnam maxime molestiae numquam obcaecati quia quod quos reiciendis rerum saepe sint tenetur velit veniam voluptates voluptatibus.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="post">
+                            <div class="post-thumb">
+                                    <img src="images/lesthes.jpg" alt="lesthes">
+                            </div>
+                            <div class="post-body">
+                                <h5>
+                                    Des goûts pour tous
+                                </h5>
+                                <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat iste laudantium pariatur ratione similique sit? Autem consectetur doloribus hic illo in ipsum itaque minus voluptas? At error expedita in quod.</span><span>Atque beatae cum cupiditate dolorum ducimus eaque eius error excepturi explicabo fugit hic ipsum labore laboriosam libero magni molestiae mollitia natus necessitatibus placeat qui reiciendis saepe sed sunt, veniam voluptatum.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="post mb-0">
+                            <div class="post-thumb">
+                                    <img src="images/photo_2_home.jpg" alt="">
+                            </div>
+                            <div class="post-body pb-0">
+                                <h5>
+                                        Un autre titre
+                                </h5>
+                                <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci corporis, delectus doloremque facere ipsum modi nulla quae recusandae rem repellat, rerum similique. Accusamus aperiam, ex minus optio sapiente tempore voluptates.</span><span>Aliquid architecto at dicta, dolorem fugiat laborum molestias nobis quasi quis quisquam. A aliquid animi fugit labore molestias, nemo nesciunt, optio pariatur quam reiciendis repudiandae sint sunt vitae voluptas voluptatum.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <!-- LATEST NEWS -->
+        <section class="section-primary pb-120">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Évènements à venir</h2>
+                    <span>~ Articles ~</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="post">
+                            <div class="post-thumb">
+                                <a href="blog-single.html">
+                                    <img src="images/post-thumb-4.jpg" alt="">
+                                </a>
+                                <div class="post-date">
+                                    <div class="inner">
+                                        <span class="date">20</span>
+                                        <span class="month">June</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-body has-border bg-1">
+                                <h5>
+                                    <a href="blog-single.html">
+                                        On the other hand
+                                    </a>
+                                </h5>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum deleniti atque.</p>
+                                <a href="blog-single.html" class="au-btn__readmore">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="post">
+                            <div class="post-thumb">
+                                <a href="blog-single.html">
+                                    <img src="images/post-thumb-5.jpg" alt="">
+                                </a>
+                                <div class="post-date">
+                                    <div class="inner">
+                                        <span class="date">16</span>
+                                        <span class="month">June</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-body has-border bg-2">
+                                <h5>
+                                    <a href="blog-single.html">Contrary to popular</a>
+                                </h5>
+                                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
+                                    minus id quod maxime placeat.</p>
+                                <a href="blog-single.html" class="au-btn__readmore">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="post mb-0">
+                            <div class="post-thumb">
+                                <a href="blog-single.html">
+                                    <img src="images/post-thumb-6.jpg" alt="">
+                                </a>
+                                <div class="post-date">
+                                    <div class="inner">
+                                        <span class="date">10</span>
+                                        <span class="month">June</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-body has-border bg-3">
+                                <h5>
+                                    <a href="blog-single.html">
+                                        This book is a treatise
+                                    </a>
+                                </h5>
+                                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                                    laboriosam, nisi ut aliquid ex ea.</p>
+                                <a href="blog-single.html" class="au-btn__readmore">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

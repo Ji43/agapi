@@ -1,0 +1,255 @@
+<div class="images-preloader">
+    <div id="preloader" class="rectangle-bounce">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<header>
+    <!-- HEADER ON DESKTOP -->
+    <nav class="navbar-desktop
+        {% if app.request.attributes.get('_route') != "home" %}
+        has-bg static
+        {% endif %}
+        ">
+
+        <div class="left">
+            <a href="#" class="logo">
+                <img src="{{ asset('/images/logo.png') }}" alt="agapi">
+            </a>
+        </div>
+
+        <ul>
+
+            {% if app.request.attributes.get('_route') != "home" %}
+                <li>
+                    <a href="{{ path('home') }}">Accueil</a>
+                </li>
+            {% endif %}
+
+            {% for categorie in categories %}
+
+                {% if categorie.hasSubCategories == false %}
+                    <li>
+                        <a href="#">
+                            {{ categorie.libelle }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="has-children">
+                        <a href="#">
+                            {{ categorie.libelle }}
+                        </a>
+                        <div class="sub-menu">
+                            <div class="wrapper">
+                                <ul>
+                                    {% for subCategorie in categorie.SousCategories %}
+                                        {% if subCategorie.hasNatureParfume %}
+                                            <li class="has-children">
+                                                <a href="#">
+                                                    {{ subCategorie.libelle }}
+                                                </a>
+                                                <div class="sub-menu">
+                                                    <div class="wrapper">
+
+                                                        <ul>
+
+                                                            <li>
+                                                                <a href="{{ path('show_by_parfume',{'slug' : subCategorie.slug, 'parfume' : 0 }) }}">
+                                                                    Nature
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="{{ path('show_by_parfume',{'slug' : subCategorie.slug, 'parfume' : 1 }) }}">
+                                                                    Parfumé
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <a href="{{ path('show_by_sousCategorie',{'slug' : subCategorie.slug}) }}">
+                                                    {{ subCategorie.libelle }}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <li>
+                <a href="#">Nouveautés</a>
+            </li>
+
+
+            <li class="has-children">
+                <a href="#">
+                    Nous trouver
+                </a>
+
+                <div class="sub-menu">
+                    <div class="wrapper">
+                        <ul>
+
+                            <li>
+                                <a href="https://www.facebook.com/christine.taillebot?fref=ts" target="_blank">Facebook</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Instagram</a>
+                            </li>
+
+                            <li>
+                                <a href="#">La boutique</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Les salons de dégustation</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Les chambres</a>
+                            </li>
+
+                            <li>
+                                <a href="#">Google map</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HEADER ON MOBILE -->
+    <nav class="navbar-mobile">
+        <div class="container">
+            <nav class="heading">
+                <div class="left">
+                    <div class="navbar-mobile__toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <a href="{{ path('home') }}" class="logo">
+                    <img src="{{ asset('/images/logo.png') }}" alt="agapi">
+                </a>
+
+                <nav id="main-nav">
+                    <ul>
+                        <li
+                                {% if app.request.attributes.get('_route') == "home" %}
+                                    class="current"
+                                {% endif %}
+                        >
+                            <a href="{{ path('home') }}" target="{{ path('home') }}">Accueil</a>
+                        </li>
+
+                        {% for categorie in categories %}
+
+                            {% if categorie.hasSubCategories == false %}
+                                <li
+
+                                        {% if app.request.attributes.get('_route') != "home" and app.request.attributes.get('_route_params')['slug'] == categorie.slug %}
+                                            class="current"
+                                        {% endif %}
+                                >
+
+                                    <a href="#">
+                                        {{ categorie.libelle }}
+                                    </a>
+                                </li>
+
+                            {% else %}
+                                <li class="has-children">
+                                    <a href="#">
+                                        {{ categorie.libelle }}
+                                    </a>
+                                    <ul>
+                                        {% for subCategorie in categorie.SousCategories %}
+                                            {% if subCategorie.hasNatureParfume %}
+                                                <li class="has-children
+
+                                                        {% if app.request.attributes.get('_route') != "home" and app.request.attributes.get('_route_params')['slug'] == subCategorie.slug %}
+                                                                    current
+                                                        {% endif %}
+                                                ">
+                                                    <a href="#">
+                                                        {{ subCategorie.libelle }}
+                                                    </a>
+
+                                                    <ul>
+
+                                                        <li>
+                                                            <a href="{{ path('show_by_parfume',{'slug' : subCategorie.slug, 'parfume' : 0 }) }}">
+                                                                Nature
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{ path('show_by_parfume',{'slug' : subCategorie.slug, 'parfume' : 1 }) }}">
+                                                                Parfumé
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <a href="{{ path('show_by_sousCategorie',{'slug' : subCategorie.slug }) }}">
+                                                        {{ subCategorie.libelle }}
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <li>
+                            <a href="#">Nouveautés</a>
+                        </li>
+
+                        <li class="has-children">
+                            <a href="#">
+                                Contact
+                            </a>
+
+                            <ul>
+                                <li>
+                                    <a href="https://www.facebook.com/christine.taillebot?fref=ts" target="_blank">Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="#">Instagram</a>
+                                </li>
+                                <li>
+                                    <a href="#">La boutique</a>
+                                </li>
+                                <li>
+                                    <a href="#">Les salons de dégustation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Les chambres</a>
+                                </li>
+                                <li>
+                                    <a href="#">Google map</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
+        </div>
+    </nav>
+</header>

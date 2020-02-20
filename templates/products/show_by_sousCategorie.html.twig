@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Nos {{ sousCategorie.libelle }} {% endblock %}
+
+{% block body %}
+    {{ menu.render }}
+
+    <main>
+        <!-- PAGE INFO -->
+        <section class="page-info set-bg" data-bg="{{ sousCategorie.imageCouverture }}">
+            <div class="section-header">
+                <h1 class="text-white">
+                    Nos {{ sousCategorie.libelle }}
+                </h1>
+
+                <span>~ {{ sousCategorie.courteDescription }} ~</span>
+            </div>
+        </section>
+
+        <!-- SHOP LIST -->
+        <section class="section-primary pt-150 pb-113 shop-list">
+            <div class="container">
+                <div class="row products">
+
+                    {% for product in sousCategorie.produits %}
+                        {% include 'partials/_products.html.twig' %}
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="woocommerce-pagination justify-content-center">
+                <ul class="page-numbers">
+                    <li>
+                        <a href="#" class="page-numbers prev">
+                            <span class="lnr lnr-arrow-left"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <span class="page-numbers current">1</span>
+                    </li>
+                    <li>
+                        <a href="#" class="page-numbers inactive">
+                            2
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-numbers inactive">
+                            3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="page-numbers next">
+                            <span class="lnr lnr-arrow-right"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
